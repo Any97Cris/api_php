@@ -1,5 +1,8 @@
 <?php
 
-echo "estou no index.php";
+include 'bootstrap.php';
+
+use Validator\RequestValidator;
+$request = new RequestValidator();
 
 ?>
