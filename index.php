@@ -1,10 +1,9 @@
 <?php
 
-include 'bootstrap.php';
-
-use Validator\RequestValidator;
 use Util\RotasUtil;
+use Validator\RequestValidator;
 
+include 'bootstrap.php';
 
 try{
     $request = new RequestValidator(RotasUtil::getRotas());

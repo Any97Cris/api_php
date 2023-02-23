@@ -8,13 +8,13 @@ use Repository\TokensAutorizadosRepository;
 class RequestValidator{
     private $request;
     private array $dadosRequest;
-    private object $tokenAutorizadosRepository;
+    private object $TokensAutorizadosRepository;
     const GET = 'GET';
     const DELETE = 'DELETE';
 
     public function __construct($request){     
         $this->request = $request;
-        $this->tokenAutorizadosRepository = new TokensAutorizadosRepository();
+        $this->TokensAutorizadosRepository = new TokensAutorizadosRepository();
     }
 
     public function processarRequest(){
@@ -34,6 +34,8 @@ class RequestValidator{
             $this->dadosRequest = JsonUtil::tratarCorpoRequisicaoJson();
         }
 
+        $this->TokensAutorizadosRepository->validarToken(getallheaders()['Authorization']);
+        
     }
 
 }
